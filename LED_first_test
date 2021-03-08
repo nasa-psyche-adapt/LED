@@ -1,0 +1,22 @@
+#import busio
+#import digitalio
+import board
+import time
+
+
+# GPIO.setmode(GPIO.BOARD)      # need this?
+#import RPi.GPIO as GPIO        # need this?
+
+
+
+# CODE FOR LED
+pin = digitalio.DigitalInOut(board.D26)			#gpio/bcm number (not board number)
+pin.direction = digitalio.Direction.OUTPUT
+
+pin.value = True
+time.sleep(1)
+
+pin.value= False
+time.sleep(1)
+
+print("test")
