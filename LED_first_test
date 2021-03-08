@@ -20,3 +20,5 @@ pin.value= False
 time.sleep(1)
 
 print("test")
+
+# SOURCE: https://www.instructables.com/Servo-Motor-Control-With-Raspberry-Pi/
