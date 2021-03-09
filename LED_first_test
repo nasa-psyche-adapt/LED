@@ -1,24 +1,23 @@
-#import busio
-#import digitalio
 import board
-import time
+from time import sleep
 
-
-# GPIO.setmode(GPIO.BOARD)      # need this?
-#import RPi.GPIO as GPIO        # need this?
-
-
+import RPi.GPIO as GPIO        
 
 # CODE FOR LED
-pin = digitalio.DigitalInOut(board.D26)			#gpio/bcm number (not board number)
-pin.direction = digitalio.Direction.OUTPUT
 
-pin.value = True
-time.sleep(1)
+myLED = 26
 
-pin.value= False
-time.sleep(1)
+GPIO.setmode(GPIO.BCM) 			# initializes that 26 is the GPIO26 pin
+GPIO.setup(myLED, GPIO.OUT)
 
-print("test")
-
-# SOURCE: https://www.instructables.com/Servo-Motor-Control-With-Raspberry-Pi/
+while True:
+	
+	GPIO.output(myLED, GPIO.HIGH)
+	print("HIGH")
+	sleep(1)
+	GPIO.output(myLED, GPIO.LOW)
+	print("LOW")
+	sleep(1)
+	
+GPIO.cleanup()
+	
